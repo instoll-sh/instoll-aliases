@@ -26,7 +26,7 @@ jobs:
 
       - name: Validate links
         id: validate_links
-        run: node --input-type=module --loader=node16 .github/workflows/check-links.js
+        run: node .github/workflows/check-links.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_STEP_SUMMARY: ${{ steps.validate_links.outputs.summary }}
