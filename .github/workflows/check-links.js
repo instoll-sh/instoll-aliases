@@ -59,7 +59,7 @@ fs.readFile('aliases', 'utf8', async (err, data) => {
 
   const aliases = data.split('\n').filter(Boolean);
   const reportPromises = aliases.map(async (line) => {
-    const [alias, linkPart] = line.split('" ', 2);
+    const [alias, link] = line.split('" ', 2);
     // const link = linkPart.slice(0, -1); // Remove trailing quote
 
     const url = link.startsWith('http', 'https') ? link : `https://github.com/${link}`;
