@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'node:fs';
 import https from 'https';
 import http from 'http';
 import { Octokit } from '@octokit/action';
