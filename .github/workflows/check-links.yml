@@ -13,16 +13,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@123c6c4e2fea3eb7bffaa91a85eb6b3d505bf7af
 
       - name: Install dependencies
-        run: pip install requests
+        run: bun install octokit
 
       - name: Validate links
         id: validate_links
-        run: python3 ".github/workflows/check-links.py"
+        run: bun ".github/workflows/check-links.js"
         env:
           GITHUB_STEP_SUMMARY: ${{ steps.validate_links.outputs.summary }}
