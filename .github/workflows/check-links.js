@@ -1,7 +1,7 @@
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
-const { Octokit } = require('@octokit/core');
+const { Octokit } = require('@octokit/action');
 const { env } = require('process');
 
 // Function to perform a HEAD request
@@ -34,7 +34,7 @@ const createIssue = async (link, statusCode) => {
 _Time of check: ${new Date().toISOString()}_`;
 
   try {
-    const response = await octokit.rest.issues.create({
+    const response = await octokit.issues.create({
       owner: env.GITHUB_REPOSITORY.split('/')[0],
       repo: env.GITHUB_REPOSITORY.split('/')[1],
       title: issueTitle,
