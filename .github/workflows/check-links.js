@@ -29,14 +29,12 @@ const createIssue = async (link, statusCode) => {
   const issueBody = `An invalid link was detected during the link validation check.
 
 **Link**: ${link}
-**Status Code**: ${statusCode}
+**Status Code**: [${statusCode}](https://http.cat/${statusCode}) ❌
 
-_Time of check: ${new Date().toISOString()}_
-
-Tagging with \`invalid-link\`.`;
+_Time of check: ${new Date().toISOString()}_`;
 
   try {
-    const response = await octokit.issues.create({
+    const response = await octokit.rest.issues.create({
       owner: env.GITHUB_REPOSITORY.split('/')[0],
       repo: env.GITHUB_REPOSITORY.split('/')[1],
       title: issueTitle,
