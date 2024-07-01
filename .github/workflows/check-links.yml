@@ -5,6 +5,9 @@ on:
     - cron: '0 0 * * *' # Runs daily at midnight
   workflow_dispatch:
 
+permissions:
+  issues: write
+
 jobs:
   validate-links:
     runs-on: ubuntu-latest
@@ -23,4 +26,5 @@ jobs:
         id: validate_links
         run: bun ".github/workflows/check-links.js"
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_STEP_SUMMARY: ${{ steps.validate_links.outputs.summary }}
