@@ -1,8 +1,8 @@
-const fs = require('fs');
-const https = require('https');
-const http = require('http');
-const { Octokit } = require('@octokit/action');
-const { env } = require('process');
+import fs from 'fs';
+import https from 'https';
+import http from 'http';
+import { Octokit } from '@octokit/action';
+import { env } from 'process';
 
 // Function to perform a HEAD request
 const checkLink = (url) => {
