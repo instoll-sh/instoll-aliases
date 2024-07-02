@@ -83,10 +83,11 @@ const main = async () => {
       reportTable += `${url} | ${statusCode} | ${active}\n`;
 
       if (statusCode !== 200) {
-        if (!(await issueExists(octokit, url)) {
+        if (!(await issueExists(octokit, url))) {
           await createIssue(octokit, url, statusCode); // Create issue for invalid links
         } else {
-          console.log(`Issue for ${url} exists`)
+          console.log(`Issue for ${url} exists`);
+        }
       }
     }
 
