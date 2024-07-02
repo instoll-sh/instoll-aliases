@@ -1,6 +1,6 @@
 import fs from 'fs';
-import https from 'https';
-import http from 'http';
+import https from 'node:https';
+import http from 'node:http';
 import { env } from 'process';
 import { Octokit } from '@octokit/action';
 
