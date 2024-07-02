@@ -16,17 +16,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.0.2
-        with:
-          node-version: 20.x
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@123c6c4e2fea3eb7bffaa91a85eb6b3d505bf7af
 
       - name: Install dependencies
-        run: npm install @octokit/action
+        run: bun install @octokit/action
 
       - name: Validate links
-        id: validate_links
-        run: node .github/workflows/check-links.mjs
+        run: bun .github/workflows/check-links.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_STEP_SUMMARY: ${{ steps.validate_links.outputs.summary }}
