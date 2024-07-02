@@ -25,8 +25,6 @@ jobs:
         run: npm install @octokit/action
 
       - name: Validate links
-        id: validate_links
-        run: node .github/workflows/check-links.mjs
+        run: node .github/scripts/check-links.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_STEP_SUMMARY: ${{ steps.validate_links.outputs.summary }}
