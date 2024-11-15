@@ -1,5 +1,5 @@
 "bun" https://bun.sh/install
-"dotload" okineadev/dotload
+"dotload" cli-stuff/dotload
 "hikka" hikariatama/Hikka
 "ollama" https://ollama.com/install.sh
 "zed" https://zed.dev/install.sh
