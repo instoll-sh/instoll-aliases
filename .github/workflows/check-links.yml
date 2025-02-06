@@ -1,8 +1,8 @@
 name: Check Aliases Links
 
 on:
-  schedule:
-    - cron: '0 0 1,15 * *' # Runs every Sunday at midnight
+  # schedule:
+  #   - cron: '0 0 1,15 * *' # Runs every Sunday at midnight
   workflow_dispatch:
 
 permissions:
